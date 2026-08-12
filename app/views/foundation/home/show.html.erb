@@ -142,15 +142,15 @@
       <p class="md-section__eyebrow">Join the waitlist</p>
       <h2 id="waitlist-title" class="md-section__heading">Be first in line when Beacon opens.</h2>
       <p>Leave your email and we'll ping you the moment your team can join.</p>
-      <%= form_with model: @lead, url: leads_path, class: "flex flex-col gap-6 items-start", data: { turbo: false } do |form| %>
-        <div class="flex flex-col sm:flex-row gap-4 w-full max-w-xl">
-          <div class="flex flex-col gap-1 flex-1">
-            <%= form.label :name, "Name (optional)", class: "text-sm font-medium text-md-on-surface-variant" %>
-            <%= form.text_field :name, autocomplete: "name", placeholder: "Ada Lovelace", class: "rounded-md border border-md-outline bg-md-surface px-3 py-2 text-md-on-surface placeholder:text-md-on-surface-variant focus:border-md-primary focus:ring-1 focus:ring-md-primary" %>
+      <%= form_with model: @lead, url: leads_path, class: "md-waitlist__form", data: { turbo: false } do |form| %>
+        <div class="md-waitlist__fields">
+          <div class="md-field">
+            <%= form.label :name, "Name (optional)" %>
+            <%= form.text_field :name, autocomplete: "name", placeholder: "Ada Lovelace", class: "md-field__input" %>
           </div>
-          <div class="flex flex-col gap-1 flex-1">
-            <%= form.label :email, "Work email", class: "text-sm font-medium text-md-on-surface-variant" %>
-            <%= form.email_field :email, required: true, autocomplete: "email", placeholder: "ada@northwind.dev", class: "rounded-md border border-md-outline bg-md-surface px-3 py-2 text-md-on-surface placeholder:text-md-on-surface-variant focus:border-md-primary focus:ring-1 focus:ring-md-primary" %>
+          <div class="md-field">
+            <%= form.label :email, "Work email" %>
+            <%= form.email_field :email, required: true, autocomplete: "email", placeholder: "ada@northwind.dev", class: "md-field__input" %>
           </div>
         </div>
         <%= form.submit "Join the waitlist", class: "md-button md-button--filled" %>
