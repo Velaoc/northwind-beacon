@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 module Foundation
-  # Minimal landing page so the app has a root to sign in/out against.
-  # Replaced by the marketing set in SPEC M7.8.
+  # Landing page for Beacon: hero, features, pricing, FAQ, and the waitlist
+  # signup. The marketing set replaces the template's minimal landing page.
   class HomeController < ApplicationController
     def show
+      @lead = Lead.new
     end
   end
 end
