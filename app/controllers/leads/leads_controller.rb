@@ -9,9 +9,10 @@ module Leads
 
       if @lead.save
         redirect_to root_path, notice: "You're on the list. We'll send an invite when Beacon opens."
-      else
-        @existing = Lead.find_by(email_normalized: @lead.email_normalized)
+      elsif Lead.exists?(email_normalized: @lead.email_normalized)
         redirect_to root_path, notice: "You're already on the list — we'll be in touch."
+      else
+        redirect_to root_path, alert: @lead.errors.full_messages.to_sentence
       end
     end
 
