@@ -130,6 +130,9 @@ Rails.application.routes.draw do
     get "session", to: "sessions#show", as: :session
   end
 
-  # Minimal landing page until the M7 marketing set replaces it.
-    root "foundation/home#show"
+  # Waitlist signup from the landing page (public marketing form).
+  resources :leads, only: %i[create], controller: "leads/leads"
+
+  # Landing page: hero, features, pricing, FAQ, waitlist signup.
+  root "foundation/home#show"
 end
